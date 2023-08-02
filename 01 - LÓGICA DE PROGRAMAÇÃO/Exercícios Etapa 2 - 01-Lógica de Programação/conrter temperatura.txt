@@ -1,0 +1,34 @@
+var opcao, temp, resultado;
+
+
+opcao = Number(window.prompt(String('Programa para converter temperatura.' + '\n' +
+'Selecione a opção desejada:' + '\n' +
+'(1) de Celsius p/ Fahrenheit' + '\n' +
+'(2) de Celsius p/ Kelvin' + '\n' +
+'(3) de Fahrenheit p/ Celsius' + '\n' +
+'(4) de Fahrenheit p/ Kelvin' + '\n' +
+'(5) de Kelvin p/ Celsius' + '\n' +
+'(6) de Celsius p/ Fahrenheit')));
+temp = window.prompt('Informe a temperatua:');
+if (opcao == 1) {
+  resultado = temp * (9 / 5 + 32);
+  window.alert([temp,' ºC  |   ',resultado,' ºF'].join(''));
+} else if (opcao == 2) {
+  resultado = temp + 273.15;
+  window.alert([temp,' ºC  |   ',resultado,' ºK'].join(''));
+} else if (opcao == 3) {
+  resultado = (temp - 32) * (5 / 9);
+  window.alert([temp,' ºF  |   ',resultado,' ºC'].join(''));
+} else if (opcao == 4) {
+  resultado = (temp - 32) * (5 / 9) + 273.15;
+  window.alert([temp,' ºF  |   ',resultado,' ºK'].join(''));
+} else if (opcao == 5) {
+  resultado = temp - 273.15;
+  window.alert([temp,' ºK  |   ',resultado,' ºC'].join(''));
+} else if (opcao == 6) {
+  resultado = (temp - 273.15) * (9 / 5) + 32;
+  window.alert([temp,' ºK  |   ',resultado,' ºF'].join(''));
+} else {
+  window.alert(['Opção inválida!!!','' + '\n' +
+  '','Tente novamente !!!'].join(''));
+}
