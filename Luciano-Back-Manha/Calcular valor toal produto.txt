@@ -1,0 +1,34 @@
+// EXERCÍCIO CALCULO DE VALOR TOTAL DO PRODUTO.
+    const txMg = 1.07;
+    const txSp = 1.12;
+    const txRj = 1.15;
+    const txMs = 1.08;
+    let total = 0;
+
+    valor = parseFloat(prompt("Informe o Valor do pedido: "));    
+    uf = prompt("Informe o UF destino: ").toUpperCase();
+    switch (uf){
+        case "MG":
+            total = valor * txMg;
+            break;
+            
+        case "SP":
+            total = valor * txSp;
+            break;
+        
+        case "RJ":
+            total = valor * txRj;
+            break;
+        
+        case "MT":
+            total = valor * txMs;
+            break;
+        
+        default:
+            console.log ('valor inválido, tente novamento !!!');
+    }
+    
+    if( uf == "MG" || uf == "SP" || uf == "RJ" || uf == "MS"){
+        console.log(`o valor do produto é: ${total} para o estado de ${uf}.`);
+}
+
