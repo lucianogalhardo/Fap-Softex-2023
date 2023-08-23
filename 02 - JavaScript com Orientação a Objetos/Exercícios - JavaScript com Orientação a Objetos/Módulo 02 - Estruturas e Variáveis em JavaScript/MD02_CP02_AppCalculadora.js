@@ -16,7 +16,11 @@ function calculadora(n1, n2, op){
         calculadora = n1 * n2;
 
     } else if (op == '/') {
-        calculadora = n1 / n2;
+        if (n2 !=0 ) {
+            calculadora = n1 / n2;    
+        } else {
+            throw new Error('Número não pode ser dividido por 0');
+        }
 
     } else {
         throw new Error ('opção inválida !');
