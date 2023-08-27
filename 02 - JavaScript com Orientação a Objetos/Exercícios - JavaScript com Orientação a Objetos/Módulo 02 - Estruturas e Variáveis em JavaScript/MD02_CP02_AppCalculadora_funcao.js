@@ -1,20 +1,25 @@
 //* App Calculadora
 
+// declaração de variáveis
 var n1, n2, resultado;
 var sair;
 
+//função Somar
 function somar(n1, n2){
          return n1 + n2;
     } 
 
+//função subtrair
 function subtrair(n1, n2){
         return n1 - n2;
    } 
 
+//Função multiplicar
 function multiplicar(n1, n2){
     return n1 * n2;
 } 
 
+//Função dividir
 function dividir(n1, n2){
     if(n2 === 0){
         throw new Error('não é possível dividir por 0 !!!')
@@ -27,9 +32,11 @@ do {
 
 try {
 
+    // pede ao usuário os 02 números.
     n1 = parseFloat(prompt('Informe o primeiro número: '));
     n2 = parseFloat(prompt('Informe o segundo número: '));
         
+    // pede ao usuário a operação.
         var op = prompt('Informe a operação:  + , - , * , /');
 
                 switch (op) {
