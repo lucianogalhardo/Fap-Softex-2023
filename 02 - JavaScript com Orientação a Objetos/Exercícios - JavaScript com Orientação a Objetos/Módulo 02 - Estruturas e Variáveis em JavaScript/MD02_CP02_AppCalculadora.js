@@ -1,6 +1,5 @@
 //* App Calculadora
 
-var n1, n2, resultado;
 
 function calculadora(n1, n2, op){
  
