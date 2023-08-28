@@ -46,7 +46,7 @@ do {
     }
 
         do {
-            sair = prompt("deseja refazer a operação? ").toUpperCase();   
+            sair = prompt("deseja refazer a operação? (S / N)").toUpperCase();   
                 if(sair === "S" || sair === "N"){
                     break;
                     

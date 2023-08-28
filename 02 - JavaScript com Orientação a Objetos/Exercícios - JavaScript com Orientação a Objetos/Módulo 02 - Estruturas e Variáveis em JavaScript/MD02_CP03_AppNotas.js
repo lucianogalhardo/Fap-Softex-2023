@@ -20,7 +20,7 @@ do {
                     throw new Error('Valor informado não é um número, tente novamente !');
                 }
             
-                console.log('Valor informado não pode ser: < 0  ou > 10');
+                alert('Valor informado não pode ser: < 0  ou > 10');
                     
             } while (nota);
                 
@@ -30,7 +30,7 @@ do {
             soma = 0;
 
     } catch (e) {
-        console.log(e);
+        alert(e);
     }
 
     do {
@@ -39,7 +39,7 @@ do {
                 break;
                     
             }else {
-                console.log('Opção inválida !!!');
+                alert('Opção inválida !!!');
             }
                 
     } while (sair);
