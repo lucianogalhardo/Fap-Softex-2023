@@ -75,7 +75,7 @@ do {
             break;
             
         }else {
-            console.log('Opção inválida !!!');
+            console.log('Opção inválida !!');
         }
         
 } while (sair);
