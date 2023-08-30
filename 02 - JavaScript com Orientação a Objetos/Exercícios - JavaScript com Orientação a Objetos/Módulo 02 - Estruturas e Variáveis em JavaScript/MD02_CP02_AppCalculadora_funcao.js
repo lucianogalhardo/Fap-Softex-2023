@@ -1,7 +1,7 @@
 //* App Calculadora
 
 // declaração de variáveis
-var n1, n2, resultado;
+var n1, n2, resultado, restoDiv;
 var sair;
 
 //função Somar
@@ -25,7 +25,10 @@ function dividir(n1, n2){
         throw new Error('não é possível dividir por 0 !!!')
     }
     return n1 / n2;
-} 
+    
+}
+
+
 
     
 do {
@@ -42,19 +45,19 @@ try {
                 switch (op) {
                     case "+":
                         resultado = somar (n1,n2);
-                        console.log(resultado);
+                        alert(resultado);
                         break;
                     case "-":
                         resultado = subtrair (n1,n2);
-                        console.log(resultado);
+                        alert(resultado);
                         break;
                     case "*":
                         resultado = multiplicar (n1,n2);
-                        console.log(resultado.toFixed(2));
+                        alert(resultado.toFixed(2));
                         break;
                     case "/":
                         resultado = dividir (n1,n2);
-                        console.log(resultado.toFixed(2));
+                        alert(resultado.toFixed(2));
                         break;
                     default:
                         throw new Error('Opção inválida, tente novamente !!!');        
