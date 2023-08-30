@@ -70,7 +70,7 @@ do {
 
     
 } while (sair == "N");
-alert('Tchau, até a próxima !!!');
+alert('Tchau, até a próxima !!');
 
 
 
