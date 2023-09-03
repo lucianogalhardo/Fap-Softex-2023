@@ -30,7 +30,7 @@ function Banco3(contaBanco3, saldoBanco3, tipoBanco3) {
 
 var minhaConta = new Banco3();
 var acumulado = 0;
-valorDeposito = 0;
+var valorDeposito = 0;
 for(var i = 1 ; i < 6; i ++){
     valorDeposito = parseFloat(prompt(`Informe o ${i} ª valor para Crédito`));
     acumulado += valorDeposito;
