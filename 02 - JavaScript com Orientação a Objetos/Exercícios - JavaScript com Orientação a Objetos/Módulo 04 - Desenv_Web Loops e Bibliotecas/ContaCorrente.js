@@ -10,16 +10,63 @@
 // numero da conta - deve retornar o número da conta
 
 
+// Declaração de Variáveis globais do sistema
+var sair;
+var op = 0;
+var valorConta;
+var banco = new Banco();
+
 // cria objeto banco
-function Banco(clienteBanco, contaBanco, agênciaBanco, tipoContaBanco, saldoContaBanco) {
-    this.contaBanco = contaBanco;
-    this.agênciaBanco = agênciaBanco;
-    this.tipoContaBanco = tipoContaBanco;
-    this.saldoContaBanco = saldoContaBanco;
+function Banco(clienteBanco, contaBanco, agenciaBanco, tipoContaBanco, saldoContaBanco) {
+    this.numContaBanco = 0;
+    this.agenciaBanco = 0;
+    this.tipoContaBanco = '';
+    this.saldoContaBanco = 0.00;
+
+    // ler dados
+    Leitor = function lerDados(){
+        var cadConta = {}
+        var tipConta;
+
+        cadConta.numContaBanco = (min, max) => Math.floor(Math.random() * (max - min) + min);
+        cadConta.agenciaBanco = parseInt(prompt('Informe a agência'));
+        var tipConta = prompt(`
+        'Selecione o tipo de Conta:'
+        (CC)- Conta Corrente  |  (CP)- Poupança`).toUpperCase;
+            if(tipConta == 'CC'){
+                cadConta.tipoContaBanco = "Conta Corrente";
+            }else {
+                cadConta.tipoContaBanco = "Poupança";
+            }
+
+        cadConta.saldoContaBanco = 0.00;
+
+        alert(`
+        CONTA CADASTRADA COM SUCESSO !!!
+
+        Conta: ${cadConta.numContaBanco(1000, 10000)}
+        Agência: ${cadConta.agenciaBanco}
+        Tipo Conta: ${cadConta.tipoContaBanco}
+        Saldo Conta: ${cadConta.saldoContaBanco.toFixed(2)}`);
+
+        return cadConta;
+
+    }
 
     // método ou função cadastrar contas
     Adicionar = function CadastrarConta(){
-        alert('vamos cadastrar uma conta');
+        this.Leitor();
+    
+    }
+
+    // atualizar dados
+    Atualizar = function AtualizarDados() {
+        alert('Atualização de dados.');
+
+    }
+
+    Excluir = function ExcluirDados() {
+        alert('Excluir dados.');
 
     }
     
@@ -31,7 +78,7 @@ function Banco(clienteBanco, contaBanco, agênciaBanco, tipoContaBanco, saldoCon
 
     //métodos ou função mostrar numero conta,  associada ao objeto:
     mostrarConta = function NumConta() {
-        alert(this.saldoContaBanco);
+        alert(this.contaBanco);
         
     }
 
@@ -68,11 +115,6 @@ function FinalizarSistema() {
 
 }
 
-// Declaração de Variáveis globais do sistema
-var sair;
-var op = 0;
-var valorConta;
-var banco = new Banco();
 
 do {  
     
@@ -81,10 +123,6 @@ do {
     switch (op) {
         case 1:
             Adicionar();
-            valorConta = (min, max) => Math.floor(Math.random() * (max - min) + min);
-            banco.contaBanco = valorConta;
-            alert(banco.contaBanco(10001, 100000));
-            
             sair = "N";
             break;
             
