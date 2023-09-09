@@ -9,69 +9,47 @@
 // saque - passar valor como parâmetro e subtraí-lo no saldo final do objeto
 // numero da conta - deve retornar o número da conta
 
-//importação class 
-import { Clientes } from "./Clientes.js";
 
-
-export class Bancos{
-
-    constructor (clienteBanco, contaBanco, agenciaBanco, tipoContaBanco){
-        
-        this.clienteBanco = clienteBanco;
-        this.contaBanco = contaBanco;
-        this.agenciaBanco = agenciaBanco;
-        this.tipoContaBanco = tipoContaBanco;
-        this.saldoContaBanco = 0.00;
-
-    }
-
-}
-
-        
 
 // Declaração de Variáveis globais do sistema
-var sair;
-var op = 0;
-var valorConta;
-var banco = new Banco();
 
-// cria objeto banco
-function Banco(clienteBanco, contaBanco, agenciaBanco, tipoContaBanco, saldoContaBanco) {
-    this.numContaBanco = 0;
-    this.agenciaBanco = 0;
-    this.tipoContaBanco = '';
-    this.saldoContaBanco = 0.00;
+var valorConta;
+//var banco = new Banco();
+
 
     // ler dados
+    /*
     Leitor = function lerDados(){
-        var cadConta = {}
+        var cadContas = {}
         var tipConta;
 
-        cadConta.numContaBanco = (min, max) => Math.floor(Math.random() * (max - min) + min);
-        cadConta.agenciaBanco = parseInt(prompt('Informe a agência'));
+        cadContas.numContaBanco = (min, max) => Math.floor(Math.random() * (max - min) + min);
+        cadContas.agenciaBanco = parseInt(prompt('Informe a agência'));
         var tipConta = prompt(`
         'Selecione o tipo de Conta:'
         (CC)- Conta Corrente  |  (CP)- Poupança`).toUpperCase;
             if(tipConta == 'CC'){
-                cadConta.tipoContaBanco = "Conta Corrente";
+                cadContas.tipoContaBanco = "Conta Corrente";
             }else {
-                cadConta.tipoContaBanco = "Poupança";
+                cadContas.tipoContaBanco = "Poupança";
             }
 
-        cadConta.saldoContaBanco = 0.00;
+        cadContas.saldoContaBanco = 0.00;
 
         alert(`
         CONTA CADASTRADA COM SUCESSO !!!
 
-        Conta: ${cadConta.numContaBanco(1000, 10000)}
-        Agência: ${cadConta.agenciaBanco}
-        Tipo Conta: ${cadConta.tipoContaBanco}
-        Saldo Conta: ${cadConta.saldoContaBanco.toFixed(2)}`);
+        Conta: ${cadContas.numContaBanco(1000, 10000)}
+        Agência: ${cadContsa.agenciaBanco}
+        Tipo Conta: ${cadContas.tipoContaBanco}
+        Saldo Conta: ${cadContas.saldoContaBanco.toFixed(2)}`);
 
-        return cadConta;
+        return cadContas;
 
-    }
+        }
+    */
 
+    /*
     // método ou função cadastrar contas
     Adicionar = function CadastrarConta(){
         this.Leitor();
@@ -101,12 +79,13 @@ function Banco(clienteBanco, contaBanco, agenciaBanco, tipoContaBanco, saldoCont
         
     }
 
-}
+*/
+
 
 // Função imprime menu principal
-function MenuPrincipal() {
-    op = parseInt(prompt(`
-    "Bem vindo ao Menu do Sistema Banco"
+export function MenuPrincipal() {
+    
+    op = parseInt(prompt(`"Bem vindo ao Menu do Sistema Banco"
     
     Selecione a opção desejada:
     
@@ -134,39 +113,6 @@ function FinalizarSistema() {
 
 }
 
-
-do {  
-    
-    MenuPrincipal();
-
-    switch (op) {
-        case 1:
-            Adicionar();
-            sair = "N";
-            break;
-            
-        case 2:
-            alert('vc selecionou a opção 2');
-            sair = "N";
-            break;
-            
-        case 3:
-            alert('vc selecionou a opção 3');
-            sair = "N";
-            break;
-            
-        case 4:
-            break;
-   
-        default:
-            alert('Opção inválida, tente novamente !!!')
-    
-    }
-
-    FinalizarSistema();
-    
-    
-} while (sair === "N");
 
     
 // var minhaConta = new Banco();

@@ -1,5 +1,7 @@
 // Criar um objeto chamado "Banco".
 
+import { Clientes } from "./Clientes.js";
+
 // Propriedades:
 // conta, agência, saldo, tipo de conta
 
@@ -10,21 +12,25 @@
 // numero da conta - deve retornar o número da conta
 
 //importação class 
-import { Clientes } from "./Clientes.js";
-
 
 export class ContaCorrente{
 
-    constructor (clienteBanco, contaBanco, agenciaBanco, tipoContaBanco){
+    constructor( contaBanco, digConta, agenciaBanco, tipoContaBanco, saldoContaBanco){
         
-        this.clienteBanco = clienteBanco;
+        this.clienteBanco = [];
         this.contaBanco = contaBanco;
+        this.digConta = digConta;
         this.agenciaBanco = agenciaBanco;
         this.tipoContaBanco = tipoContaBanco;
         this.saldoContaBanco = 0.00;
 
     }
 
+        addCliente(cliente){
+            this.clienteBanco.push(cliente);
+            this.saldoContaBanco = 1200;
+        }
+ 
 }
 
         
