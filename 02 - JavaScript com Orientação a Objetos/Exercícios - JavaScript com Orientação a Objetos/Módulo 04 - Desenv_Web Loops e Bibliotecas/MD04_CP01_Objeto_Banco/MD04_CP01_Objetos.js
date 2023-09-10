@@ -1,4 +1,4 @@
-// Criar um objeto chamado "Banco".
+// Criar um objeto chamado "Banco"
 // Propriedades:  conta, agência, saldo, tipo de conta
 class Banco{
 
@@ -63,19 +63,20 @@ function FinalizarSistema() {
 
 }
 
-function Depositos(creditos) {
-    return creditos = parseFloat(prompt(`Valor Depoósito: `)).toFixed(2);
+function Depositos() {
+    creditos = parseFloat(prompt(`Valor Depoósito: `)).toFixed(2);
     alert('Valor depositado com Sucesso !!!');
     SubMenuMovimentacao();
     
+    
 }
 
-function Saques(debitos) {
-    return debitos = parseFloat(prompt(`Valor Saque: `)).toFixed(2);
+function Saques() {
+    debitos = parseFloat(prompt(`Valor Saque: `)).toFixed(2);
     alert('Saque realizado com Sucesso !!!');
     SubMenuMovimentacao();
-}    
 
+}    
 
 
 // Métodos: 
@@ -104,9 +105,12 @@ cadConta.mostrarSaldo();
 var op = 0;
 var op2= "";
 var sair;
-var valorDepositos = 0;
-var valorSaques = 0;
-var movimentacao = 0;
+var creditos = 0.00;
+var debitos = 0.00;
+var valorDepositos = 0.00;
+var valorSaques = 0.00;
+var saldoTotal = 0.00;
+var listaContas = [];
 
 do {
 
@@ -124,14 +128,14 @@ do {
                 do {
                     if(op2 === "D"){
                         Depositos();
-                        valorDepositos += creditos;
+                        valorDepositos = valorDepositos + creditos;
 
                     } else if(op2 === "S"){
                         Saques();
-                        valorSaques += Saques;
+                        valorSaques = valorSaques + debitos;
 
                     } else if(op2 === "V"){
-                        MenuPrincipal();
+                        break;
 
                     } else {
                         alert('Opção Inválida !!!');
@@ -140,10 +144,17 @@ do {
 
                 } while (op2 !== "V");    
                 
-            
+            MenuPrincipal();
             
         case 3:
-            alert('vc selecionou a opção 3');
+            saldoTotal = valorDepositos - valorSaques;
+            alert(`Saldo atual da conta:
+            R$ ${saldoTotal}`);
+            console.log(typeof saldoTotal);
+            console.log(typeof valorDepositos);
+            console.log(typeof valorSaques);
+            console.log(typeof creditos);
+            console.log(typeof debitos);
             break;
             
         case 4:
