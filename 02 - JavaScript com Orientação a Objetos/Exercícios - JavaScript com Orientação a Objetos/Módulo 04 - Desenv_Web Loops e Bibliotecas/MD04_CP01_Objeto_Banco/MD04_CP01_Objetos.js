@@ -128,11 +128,11 @@ do {
                 do {
                     if(op2 === "D"){
                         Depositos();
-                        valorDepositos = valorDepositos + creditos;
+                        saldoTotal += Number(creditos);
 
                     } else if(op2 === "S"){
                         Saques();
-                        valorSaques = valorSaques + debitos;
+                        saldoTotal -= Number(debitos);
 
                     } else if(op2 === "V"){
                         break;
@@ -147,7 +147,7 @@ do {
             MenuPrincipal();
             
         case 3:
-            saldoTotal = valorDepositos - valorSaques;
+        
             alert(`Saldo atual da conta:
             R$ ${saldoTotal}`);
             console.log(typeof saldoTotal);
