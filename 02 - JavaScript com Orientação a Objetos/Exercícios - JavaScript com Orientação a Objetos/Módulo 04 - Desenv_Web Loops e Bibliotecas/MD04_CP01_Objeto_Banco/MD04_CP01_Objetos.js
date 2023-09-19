@@ -1,25 +1,32 @@
 // Criar um objeto chamado "Banco"
 // Propriedades:  conta, agência, saldo, tipo de conta
 class Banco{
-
-    constructor(numConta, numAgencia, tipoConta, saldoConta){
+    
+    constructor(nomeCliente, cpfCliente, numConta, numAgencia, tipoConta, saldoConta){
+        this.nomeCliente = nomeCliente;
+        this.cpfCliente = cpfCliente;
         this.numConta = numConta;
         this.numAgencia = numAgencia;
         this.tipoConta = tipoConta;
         this.saldoConta = 0.00;
     }
-
-    //métodos ou funções associadas ao objeto:
+    
+    /*
+    //métodos:
+    
+    // buscar saldo - deve retornar o valor do saldo atual
     mostrarSaldo = function SaldoValor() {
         console.log(this.saldoConta);
         
     }
 
-    // método mostrar numero da conta
+    
+    // numero da conta - deve retornar o número da conta
     mostrarConta = function numeroConta() {
         console.log(this.numConta);
     
     }
+    */
 }
 
 // Funcao Menu Principal
@@ -59,11 +66,31 @@ function FinalizarSistema() {
                 console.log('Opção inválida !!');
             }
             
-    } while (sair);
+        } while (sair);
+        
+    }
+    
+    // Criacao dos Metodos:
 
-}
+    // Exibi o numero da Conta
 
-function Depositos() {
+    function mostrarConta() {
+        
+        for (let p of listaContas) {
+            console.log("Conta Cadastrada com Sucesso !!! ")
+            for (const key in p) {
+                console.log(`\t${key} => ${p[key]}`);
+        
+            }}
+            
+    }
+
+    function mostrarSaldo() {
+        alert(listaContas.saldoConta);
+    }
+
+    // depósito - passar valor como parâmetro e adcioná-lo no saldo final do objeto
+    function Depositos() {
     creditos = parseFloat(prompt(`Valor Depoósito: `)).toFixed(2);
     alert('Valor depositado com Sucesso !!!');
     SubMenuMovimentacao();
@@ -71,55 +98,40 @@ function Depositos() {
     
 }
 
-function Saques() {
-    debitos = parseFloat(prompt(`Valor Saque: `)).toFixed(2);
-    alert('Saque realizado com Sucesso !!!');
-    SubMenuMovimentacao();
+    // saque - passar valor como parâmetro e subtraí-lo no saldo final do objeto
+    function Saques() {
+        debitos = parseFloat(prompt(`Valor Saque: `)).toFixed(2);
+        alert('Saque realizado com Sucesso !!!');
+        SubMenuMovimentacao();
 
 }    
 
-
-// Métodos: 
-// depósito - passar valor como parâmetro e adcioná-lo no saldo final do objeto
-// saque - passar valor como parâmetro e subtraí-lo no saldo final do objeto
-// numero da conta - deve retornar o número da conta
-// buscar saldo - deve retornar o valor do saldo atual
-
-
-/*
-var listaContas = [];
-
-var cadConta = new Banco (Number(prompt('Informe o numero da conta: ')), 
-Number(prompt('Informe o número da Agênca: ')),
-prompt('Informe tipo da conta: (CC) Conta corrente | (CP) Conta Poupança'),)
-
-listaContas.push(cadConta);
-
-console.log(listaContas);
-//mostrarSaldo(cadConta.saldoConta);
-cadConta.mostrarConta();
-cadConta.mostrarSaldo();
-
-*/
 
 var op = 0;
 var op2= "";
 var sair;
 var creditos = 0.00;
 var debitos = 0.00;
-var valorDepositos = 0.00;
-var valorSaques = 0.00;
 var saldoTotal = 0.00;
+
 var listaContas = [];
 
+
+
 do {
-
+    
     MenuPrincipal();
-
+    
     switch (op) {
         case 1:
-            alert('vc escolheu a opção 1');
-            
+            var cadConta = new Banco (prompt('Informe o nome completo do cliente: '),
+            parseInt(prompt('Informe o CPF do cliente: ')),
+            parseInt(prompt('Informe o numero da conta: ')), 
+            parseInt(prompt('Informe o número da Agênca: ')),
+            prompt('Informe tipo da conta: (CC) Conta corrente | (CP) Conta Poupança'));
+
+            listaContas.push(cadConta);
+            mostrarConta()
             break;
             
         case 2:
@@ -139,6 +151,7 @@ do {
 
                     } else {
                         alert('Opção Inválida !!!');
+                        break;
 
                     }
 
@@ -149,12 +162,7 @@ do {
         case 3:
         
             alert(`Saldo atual da conta:
-            R$ ${saldoTotal}`);
-            console.log(typeof saldoTotal);
-            console.log(typeof valorDepositos);
-            console.log(typeof valorSaques);
-            console.log(typeof creditos);
-            console.log(typeof debitos);
+            R$ ${mostrarSaldo()}`);
             break;
             
         case 4:
@@ -167,6 +175,7 @@ do {
 
     FinalizarSistema();
 
-
+    
     
 } while (sair == "N");
+
