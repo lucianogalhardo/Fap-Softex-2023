@@ -1,8 +1,8 @@
 {
-  "name": "md04_cp02_sequelize",
+  "name": "banconode",
   "version": "1.0.0",
-  "description": "Projeto Sequelize",
-  "main": "ExSequelize.js",
+  "description": "Estudo de caso criacao app Banco ",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
