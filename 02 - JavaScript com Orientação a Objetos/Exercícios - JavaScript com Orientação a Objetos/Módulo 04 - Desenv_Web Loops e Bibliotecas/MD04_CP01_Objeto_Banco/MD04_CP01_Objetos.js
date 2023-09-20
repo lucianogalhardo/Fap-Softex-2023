@@ -11,105 +11,51 @@ class Banco{
         this.saldoConta = 0.00;
     }
     
-    /*
+    
     //métodos:
     
     // buscar saldo - deve retornar o valor do saldo atual
     mostrarSaldo = function SaldoValor() {
-        console.log(this.saldoConta);
+        console.log(`Saldo em Conta: ${this.saldoConta}`);
         
     }
-
+    
     
     // numero da conta - deve retornar o número da conta
     mostrarConta = function numeroConta() {
-        console.log(this.numConta);
+        console.log(`Número da Conta: ${this.numConta}`);
     
     }
-    */
-}
 
-// Funcao Menu Principal
-function MenuPrincipal() {
-    op = Number(prompt(`
-    Bem vindo ao Menu principal !!!
-    
-    Selecione a opção desejada:
-    (1)- Contas
-    (2)- Movimentação
-    (3)- Consultar Saldo
-    (4)- Finalizar Sistema`));
-
-}
-
-// Funcao Sub Menu Movimentacao
-function SubMenuMovimentacao() {
-    op2 = prompt(`
-    Menu Movimentação !!!
-    
-    Selecione a opção desejada:
-    (D)- Depósitos
-    (S)- Saques
-    (V)- Voltar ao Menu Principal `).toUpperCase();
-
-}
-
-// Funcao Finalizar Sistema
-function FinalizarSistema() {
-    
-    do {
-        sair = prompt("deseja sair do sistema? ").toUpperCase();   
-            if(sair === "S" || sair === "N"){
-                break;
-                
-            }else {
-                console.log('Opção inválida !!');
-            }
-            
-        } while (sair);
-        
+    // Dados da conta cadastrada
+    dadosConta = function exibirDadosConta() {
+        alert(`
+        CONTA CADASTRADA COM SUCESSO !!!
+        Cliente ==> ${this.nomeCliente}
+        CPF ======> ${this.cpfCliente}
+        Conta ====> ${this.numConta}
+        Agência ==> ${this.numAgencia}
+        Saldo ====> ${this.saldoConta}`);
     }
     
+}
+   
     // Criacao dos Metodos:
-
-    // Exibi o numero da Conta
-
-    function mostrarConta() {
-        
-        for (let p of listaContas) {
-            console.log("Conta Cadastrada com Sucesso !!! ")
-            for (const key in p) {
-                console.log(`\t${key} => ${p[key]}`);
-        
-            }}
-            
-    }
-
-    function mostrarSaldo() {
-        alert(listaContas.saldoConta);
-    }
 
     // depósito - passar valor como parâmetro e adcioná-lo no saldo final do objeto
     function Depositos() {
-    creditos = parseFloat(prompt(`Valor Depoósito: `)).toFixed(2);
-    alert('Valor depositado com Sucesso !!!');
-    SubMenuMovimentacao();
-    
-    
+        creditos = parseFloat(prompt(`Valor Depoósito: `)).toFixed(2);
+        alert('Valor depositado com Sucesso !!!');
+   
 }
 
     // saque - passar valor como parâmetro e subtraí-lo no saldo final do objeto
     function Saques() {
         debitos = parseFloat(prompt(`Valor Saque: `)).toFixed(2);
         alert('Saque realizado com Sucesso !!!');
-        SubMenuMovimentacao();
 
 }    
 
-
-var op = 0;
-var op2= "";
-var sair;
 var creditos = 0.00;
 var debitos = 0.00;
 var saldoTotal = 0.00;
@@ -117,65 +63,33 @@ var saldoTotal = 0.00;
 var listaContas = [];
 
 
+var cadConta = new Banco (prompt('Informe o nome completo do cliente: '),
+    parseInt(prompt('Informe o CPF do cliente: ')),
+    parseInt(prompt('Informe o numero da conta: ')), 
+    parseInt(prompt('Informe o número da Agênca: ')),
+    prompt('Informe tipo da conta: (CC) Conta corrente | (CP) Conta Poupança'));
 
-do {
+    Depositos();
+    saldoTotal += Number(creditos);
+    Depositos();
+    saldoTotal += Number(creditos);
+    Saques()
+    saldoTotal -= Number(debitos);
+
+    cadConta.saldoConta = saldoTotal;
     
-    MenuPrincipal();
-    
-    switch (op) {
-        case 1:
-            var cadConta = new Banco (prompt('Informe o nome completo do cliente: '),
-            parseInt(prompt('Informe o CPF do cliente: ')),
-            parseInt(prompt('Informe o numero da conta: ')), 
-            parseInt(prompt('Informe o número da Agênca: ')),
-            prompt('Informe tipo da conta: (CC) Conta corrente | (CP) Conta Poupança'));
+    listaContas.push(cadConta);
 
-            listaContas.push(cadConta);
-            mostrarConta()
-            break;
-            
-        case 2:
-            
-            SubMenuMovimentacao();
-                do {
-                    if(op2 === "D"){
-                        Depositos();
-                        saldoTotal += Number(creditos);
+    // exibir de forma organizada os elementos da conta cadastrada
+    listaContas[0].dadosConta();
 
-                    } else if(op2 === "S"){
-                        Saques();
-                        saldoTotal -= Number(debitos);
 
-                    } else if(op2 === "V"){
-                        break;
-
-                    } else {
-                        alert('Opção Inválida !!!');
-                        break;
-
-                    }
-
-                } while (op2 !== "V");    
-                
-            MenuPrincipal();
-            
-        case 3:
-        
-            alert(`Saldo atual da conta:
-            R$ ${mostrarSaldo()}`);
-            break;
-            
-        case 4:
-            break;
-   
-        default:
-            alert('Opção inválida, tente novamente !!!')
-    
-    }
-
-    FinalizarSistema();
+    // métodos para exibir o número e o saldo da conta
+    listaContas[0].mostrarConta();
+    listaContas[0].mostrarSaldo();
 
     
-    
-} while (sair == "N");
 
+
+
+                       
