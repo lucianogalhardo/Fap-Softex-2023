@@ -1,0 +1,11 @@
+{
+  "name": "md04_cp02_sequelize",
+  "version": "1.0.0",
+  "description": "Projeto Sequelize",
+  "main": "ExSequelize.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luciano Galhardo",
+  "license": "ISC"
+}
