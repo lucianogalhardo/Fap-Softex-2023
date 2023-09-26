@@ -8,5 +8,7 @@
   },
   "author": "Luciano Galhardo",
   "license": "ISC",
-  "devDependencies": {}
+  "dependencies": {
+    "prompt": "^1.3.0"
+  }
 }
