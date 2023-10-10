@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         matricula: {
-            type: DataTypes.int,
+            type: DataTypes.INTEGER,
             allowNull: false
 
     },
