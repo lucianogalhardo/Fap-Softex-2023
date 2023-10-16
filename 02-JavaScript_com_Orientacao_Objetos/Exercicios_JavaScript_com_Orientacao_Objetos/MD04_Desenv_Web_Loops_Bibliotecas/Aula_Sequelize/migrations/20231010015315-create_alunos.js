@@ -11,7 +11,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-
       },
       nome: {
         type: Sequelize.STRING,
@@ -21,14 +20,24 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-    })
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+    }
+
     /**
      * Add altering commands here.
      *
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-  },
+  });
+
+},
 
   async down (queryInterface, Sequelize) {
     await queryInterface.dropTable('Alunos');

@@ -8,13 +8,15 @@ const Alunos = AlunosModel(sequelize, DataTypes);
 async function run() {
 
     try {
+
+        /*
         //Cadastro de um Aluno 1
         const alunoCadastrado1 = await Alunos.create({
             nome: 'Luciano Galhardo',
             matricula: 102030
         });
 
-        /*
+        
          //Cadastro de um Aluno 2
         const alunoCadastrado2 = await Alunos.create({
             nome: 'Emanuel Galhardo',
@@ -34,20 +36,29 @@ async function run() {
         });
 
         */
-        console.log('Aluno Cadastrado ID 1: ', alunoCadastrado1.toJASON());
-        //console.log('Aluno Cadastrado ID 2: ', alunoCadastrado2.toJASON());
-        //console.log('Aluno Cadastrado ID 3: ', alunoCadastrado3.toJASON());
-        //console.log('Aluno Cadastrado ID 4: ', alunoCadastrado4.toJASON());
+
+        //Cadastro de um Aluno
+        const alunoCadastrado = await Alunos.create({
+            nome: 'Aluno 7',
+            matricula: 808080
+        });
+
+        console.log('Aluno Cadastrado: ', alunoCadastrado.toJSON());
+        
 
         // Leitura dos Alunos
         const alunos = await Alunos.findAll();
-        console.log('Alunos Cadastrados:', alunos );//.map(p => p.toJASON()));
+        console.log('Alunos Cadastrados:', alunos.map(p => p.toJSON()));
+
+        /*
 
         // Atualizacao de dados do Aluno
         const alunosAtualizados = await Alunos.update(
             {nome: 'Luciano Ribeiro Galhardo'},
             {where: {id: alunoCadastrado1.id}}
         );
+
+        */
 
         /*
         // Remocao do aluno 4
