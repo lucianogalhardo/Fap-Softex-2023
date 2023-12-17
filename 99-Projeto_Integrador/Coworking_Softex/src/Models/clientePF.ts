@@ -13,7 +13,6 @@ export class ClientePF extends Cliente {
     private nome: string;
 
     // Construtor
-
     constructor (
         idCliente: number, 
         _email: Array<Email>,
@@ -31,6 +30,21 @@ export class ClientePF extends Cliente {
             
 
         }
+
+        // Getters
+
+        getCpf(): string {
+            return this.cpf;
+        }
+
+        getNome(): string {
+            return this.nome;
+        }
+
+        setNome(nome: string): void {
+            this.nome = nome;
+        }
+
 
         
 }
