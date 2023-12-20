@@ -26,8 +26,6 @@ constructor(
     dataCadastro: Date,
     dataAlteracao: Date,
 
-
-
     ) {
 
     this.idCliente= idCliente;
