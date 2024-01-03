@@ -2,6 +2,7 @@ import { Cliente } from "./cliente";
 import { Contrato } from "./contrato";
 import { Email } from "./email";
 import { Endereco } from "./endereco";
+import { StatusCliente } from "./statusCliente";
 import { Telefone } from "./telefone";
 
 
@@ -15,16 +16,19 @@ export class ClientePF extends Cliente {
     // Construtor
     constructor (
         idCliente: number, 
-        _email: Array<Email>,
-        _telefones: Array<Telefone>, 
+        email: Array<Email>,
+        telefones: Array<Telefone>, 
         endereco: Endereco, 
         contrato: Contrato,
+        status: StatusCliente,
+        dataCadastro: Date,
+        dataAlteracao: Date,
         cpf: string,
         nome: string
         
         ) {
 
-        super(idCliente, endereco, contrato);
+        super(idCliente, email, telefones, endereco, contrato, status, dataCadastro, dataAlteracao);
         this.cpf = cpf;
         this.nome = nome;
             

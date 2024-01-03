@@ -20,6 +20,8 @@ private dataAlteracao: Date;
 // Construtor
 constructor(
     idCliente: number, 
+    _email: Array<Email>,
+    _telefones: Array<Telefone>,
     endereco: Endereco, 
     contrato: Contrato,
     status: StatusCliente,
